@@ -83,13 +83,13 @@ def train(args, data):
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--batch-size', default=64, type=int)
+	parser.add_argument('--batch-size', default=32, type=int)
 	parser.add_argument('--data-type', default='SNLI')
 	parser.add_argument('--dropout', default=0.25, type=float)
 	parser.add_argument('--epoch', default=40, type=int)
 	parser.add_argument('--gpu', default=0, type=int)
 	parser.add_argument('--learning-rate', default=0.5, type=float)
-	parser.add_argument('--print-freq', default=1000, type=int)
+	parser.add_argument('--print-freq', default=3000, type=int)
 	parser.add_argument('--weight-decay', default=5e-5, type=float)
 	parser.add_argument('--word-dim', default=300, type=int)
 	parser.add_argument('--d-e', default=300, type=int)

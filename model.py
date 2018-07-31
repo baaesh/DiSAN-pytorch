@@ -12,7 +12,7 @@ def get_rep_mask(lengths, sentence_len, device):
 	for i in range(len(lengths)):
 		rep_mask[i, lengths[i]:] = 0
 
-	return rep_mask.unsqueeze_(-1)
+	return rep_mask
 
 
 class NN4SNLI(nn.Module):

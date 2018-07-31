@@ -30,7 +30,7 @@ def get_direct_mask_tile(direction, seq_len, device):
 
 def get_rep_mask_tile(rep_mask, device):
 	batch_size, seq_len, _ = rep_mask.size()
-	mask = rep_mask.view(batch_size, 1, seq_len).expand(batch_size, seq_len, seq_len)
+	mask = rep_mask.unsqueeze(1).expand(batch_size, seq_len, seq_len)
 
 	return mask
 
@@ -55,12 +55,13 @@ class Source2Token(nn.Module):
 		self.softmax = nn.Softmax(dim=-2)
 		self.dropout = nn.Dropout(dropout)
 
+
 	def forward(self, x, rep_mask):
 		x = self.dropout(x)
 		map1 = self.elu(self.fc1(x))
 		map2 = self.fc2(self.dropout(map1))
 
-		soft = masked_softmax(map2, rep_mask, dim=1)
+		soft = masked_softmax(map2, rep_mask.unsqueeze(-1), dim=1)
 		out = torch.sum(x * soft, dim=1)
 
 		return out
@@ -104,11 +105,11 @@ class DiSA(nn.Module):
 		self.b_f = nn.Parameter(torch.zeros(args.d_h))
 
 		self.elu = nn.ELU()
-		self.relu = nn.ReLU()
 		self.tanh = nn.Tanh()
 		self.softmax = nn.Softmax(dim=-2)
 		self.sigmoid = nn.Sigmoid()
 		self.dropout = nn.Dropout(args.dropout)
+
 
 	def forward(self, x, rep_mask):
 		batch_size, seq_len, d_e = x.size()
@@ -168,6 +169,7 @@ class DiSAN(nn.Module):
 		self.bw_DiSA = DiSA(args, direction='bw')
 
 		self.source2token = Source2Token(args.d_h * 2, args.dropout)
+
 
 	def forward(self, inputs, rep_mask):
 		# Forward and backward DiSA
