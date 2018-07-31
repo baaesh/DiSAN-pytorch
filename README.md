@@ -26,25 +26,25 @@ Please install the following library requirements first.
     
 ## Training
 > python train.py --help
-    usage: train.py [-h] [--batch-size BATCH_SIZE] [--data-type DATA_TYPE]
-                    [--dropout DROPOUT] [--epoch EPOCH] [--gpu GPU]
-                    [--learning-rate LEARNING_RATE] [--print-freq PRINT_FREQ]
-                    [--weight-decay WEIGHT_DECAY] [--word-dim WORD_DIM]
-                    [--d-e D_E] [--d-h D_H]
+        usage: train.py [-h] [--batch-size BATCH_SIZE] [--data-type DATA_TYPE]
+                        [--dropout DROPOUT] [--epoch EPOCH] [--gpu GPU]
+                        [--learning-rate LEARNING_RATE] [--print-freq PRINT_FREQ]
+                        [--weight-decay WEIGHT_DECAY] [--word-dim WORD_DIM]
+                        [--d-e D_E] [--d-h D_H]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      --batch-size BATCH_SIZE
-      --data-type DATA_TYPE
-      --dropout DROPOUT
-      --epoch EPOCH
-      --gpu GPU
-      --learning-rate LEARNING_RATE
-      --print-freq PRINT_FREQ
-      --weight-decay WEIGHT_DECAY
-      --word-dim WORD_DIM
-      --d-e D_E
-      --d-h D_H
+        optional arguments:
+          -h, --help            show this help message and exit
+          --batch-size BATCH_SIZE
+          --data-type DATA_TYPE
+          --dropout DROPOUT
+          --epoch EPOCH
+          --gpu GPU
+          --learning-rate LEARNING_RATE
+          --print-freq PRINT_FREQ
+          --weight-decay WEIGHT_DECAY
+          --word-dim WORD_DIM
+          --d-e D_E
+          --d-h D_H
 
 
 **Note:** 
