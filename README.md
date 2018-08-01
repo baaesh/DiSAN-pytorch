@@ -8,7 +8,7 @@ Dataset: [SNLI](https://nlp.stanford.edu/projects/snli/)
 
 | Model | Valid Acc(%) | Test Acc(%)
 | ----- | ------------ | -----------
-| Baseline from the paper | - | - |
+| Baseline from the paper | - | 85.62 |
 | Re-implemenation | - | - |
 
 ## Development Environment
