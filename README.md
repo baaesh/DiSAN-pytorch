@@ -8,8 +8,8 @@ Dataset: [SNLI](https://nlp.stanford.edu/projects/snli/)
 
 | Model | Valid Acc(%) | Test Acc(%)
 | ----- | ------------ | -----------
-| Baseline from the paper | - | - |
-| Re-implemenation | - | - |
+| Baseline from the paper | - | 85.62 |
+| Re-implemenation | 80.60 | 79.80 |
 
 ## Development Environment
 - OS: Ubuntu 16.04 LTS (64bit)
@@ -50,3 +50,4 @@ Please install the following library requirements first.
 
 **Note:** 
 - Only codes to use SNLI as training data are implemented.
+- There must be some erros somewhere, as the performance is much lower. But I couldn't find...
