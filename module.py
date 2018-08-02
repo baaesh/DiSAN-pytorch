@@ -29,7 +29,7 @@ def get_direct_mask_tile(direction, seq_len, device):
 
 
 def get_rep_mask_tile(rep_mask, device):
-	batch_size, seq_len, _ = rep_mask.size()
+	batch_size, seq_len = rep_mask.size()
 	mask = rep_mask.unsqueeze(1).expand(batch_size, seq_len, seq_len)
 
 	return mask
@@ -151,7 +151,7 @@ class DiSA(nn.Module):
 		out = fusion_gate * rep_map + (1-fusion_gate) * attn_result
 
 		# Mask for high rank
-		out = out * rep_mask
+		out = out * rep_mask.unsqueeze(-1)
 
 		return out
 
